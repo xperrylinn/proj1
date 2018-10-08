@@ -1,0 +1,13 @@
+<html>
+	<body>
+		<h1>Hello World! From views.html.erb</h1>	
+		<% $cities.each_value do |city| %>
+			<!-- In between these two ruby tags, put your code for displaying a city! -->
+			<h1>City:</h1><%= city.name %>
+			<h1>Landmark:</h1><%= city.landmark %>
+			<h1>Population:</h1><%= city.population %>
+			<h1>Weather:</h1><%= city.weather[:description] %>
+		<% end %>
+	</body>
+</html>
+
