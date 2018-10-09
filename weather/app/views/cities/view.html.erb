@@ -1,13 +1,20 @@
 <html>
 	<body>
 		<h1>Hello World! From views.html.erb</h1>	
-		<% $cities.each_value do |city| %>
-			<!-- In between these two ruby tags, put your code for displaying a city! -->
-			<h1>City:</h1><%= city.name %>
-			<h1>Landmark:</h1><%= city.landmark %>
-			<h1>Population:</h1><%= city.population %>
-			<h1>Weather:</h1><%= city.weather[:description] %>
-		<% end %>
+		<% if params[:city].nil? %>
+			<% $cities.each_value do |city| %>
+				<!-- In between these two ruby tags, put your code for displaying a city! -->
+				<h1>City:</h1><%= city.name %>
+				<h1>Landmark:</h1><%= city.landmark %>
+				<h1>Population:</h1><%= city.population %>
+				<h1>Weather:</h1><%= city.weather[:description] %>
+			<% end %>
+		<% else %>
+			<h1>City:</h1><%= $cities[(params[:city]).to_sym].name %>
+			<h1>Landmark:</h1><%= $cities[(params[:city]).to_sym].landmark %>
+			<h1>Population:</h1><%= $cities[(params[:city]).to_sym].population %>
+			<h1>Weather:</h1><%= $cities[(params[:city]).to_sym].weather[:description] %>
+		<%end%>
 	</body>
 </html>
 

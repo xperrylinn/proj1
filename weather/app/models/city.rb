@@ -20,5 +20,11 @@ class City
 	def update(update_params)
 		# Your code here, for Task 4
 		# Use update_params (a hash) to update the model
+		if update_params[:landmark]
+			@landmark = update_params[:landmark]
+		end
+		if update_params[:population]
+			@population = update_params[:population]
+		end
 	end
 end

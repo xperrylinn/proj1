@@ -11,7 +11,13 @@ class CitiesController < ApplicationController
 	
 	# Update the information of a city - Get
 	def update
-		render 'update'
+		@params = params
+		if params[:name].nil?
+			render 'update'
+		else 
+			$cities[(params[:name]).to_sym].update(params)	
+			render 'update'
+		end
 	end
 
 	# Create a nee city - POST

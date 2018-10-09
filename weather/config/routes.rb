@@ -6,5 +6,4 @@ Rails.application.routes.draw do
 	get 'update', to: 'cities#update'
 	post 'create', to: 'cities#create'
 	post 'update', to: 'cities#update'
-	
 end
