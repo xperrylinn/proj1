@@ -12,11 +12,17 @@ class CitiesController < ApplicationController
 	# Update the information of a city - Get
 	def update
 		@params = params
-		if params[:name].nil?
+		if params[:authenticity_token].nil?
 			render 'update'
 		else 
-			$cities[(params[:name]).to_sym].update(params)	
-			render 'update'
+			if !$cities[:name].nil?
+				$cities[(params[:name]).to_sym].update(params)	
+				render 'view'
+			else 
+				newCity = City.new(params)
+                		newCity.save
+                		render 'view'
+			end
 		end
 	end
 

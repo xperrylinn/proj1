@@ -1,6 +1,7 @@
 <html>
 	<body>
 		<h1>Hello World! From update.html.erb</h1>
+		<p><%= @params %>
 		<%= form_with local: true, method: "post" do |f| %>
 			<%= f.text_field :name %> 
 			<%= f.text_field :landmark  %>
