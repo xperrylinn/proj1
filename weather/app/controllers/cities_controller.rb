@@ -5,13 +5,8 @@ class CitiesController < ApplicationController
 	end		
 
 	# Display a from to creat a new City - Get
-	def new(params=nil)
-		if params.nil?
-			render 'new'
-		else
-
-			redirect_to create
-		end
+	def new
+		render 'new'
 	end
 	
 	# Update the information of a city - Get
@@ -22,11 +17,6 @@ class CitiesController < ApplicationController
 	# Create a nee city - POST
 	def create
 		newCity = City.new(params)
-		#	name:params[:city],
-		#	landmark:params[:landmark],
-		#	population:[:population],				
-		#	weather:[:weather]
-		#	).save
 		newCity.save
 		render 'view'
 	end
