@@ -22,6 +22,7 @@ class CitiesController < ApplicationController
 				newCity = City.new(params)
                 		newCity.save
                 		render 'view'
+				#redirect_to action:view
 			end
 		end
 	end
